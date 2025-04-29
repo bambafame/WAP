@@ -1,0 +1,12 @@
+body {
+  background-color: burlywood;
+  font-family: "Courier New", "Arial", "Trebuchet MS";
+}
+
+p span {
+  color: aqua;
+}
+
+.title {
+  color: rgb(50, 132, 234);
+}
