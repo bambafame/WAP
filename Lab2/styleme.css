@@ -1,10 +1,15 @@
 body {
-  background-color: burlywood;
+  background-color: antiquewhite;
+  font-weight: 900;
   font-family: "Courier New", "Arial", "Trebuchet MS";
 }
 
 p span {
-  color: aqua;
+  color: chocolate;
+}
+
+li a {
+  color: red;
 }
 
 .title {
