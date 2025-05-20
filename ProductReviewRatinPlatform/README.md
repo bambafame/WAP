@@ -1,126 +1,136 @@
-//// README.md (to be added in your project root)
+# Product Review & Rating Platform
 
-# 🛍️ Product Review & Rating Platform (CS472 Final Project)
+A full-stack web application that allows users to:
+- Browse a list of products
+- View product details and customer reviews
+- Submit, edit, and delete reviews
+- Add, edit, search, and manage products
 
-## 📦 Project Structure
+Built with **React + TypeScript** for the frontend and **Node.js + Express + MongoDB** for the backend.
+
+---
+
+## 🚀 Features
+
+### Frontend (React + Vite + Tailwind CSS)
+- Product listing with grid layout
+- Search products by name (live search)
+- Modal form to add/edit products
+- Toast notifications (react-toastify)
+- Responsive and styled with Tailwind
+- Star ratings display (★)
+- Profile menu in navbar
+
+### Backend (Express + TypeScript + MongoDB)
+- RESTful API for products and reviews
+- Product search: `GET /products/search?q=`
+- CRUD for products: `GET`, `POST`, `PUT`
+- CRUD for reviews: `GET`, `POST`, `PUT`, `DELETE`
+
+---
+
+## 📁 Folder Structure
 
 ```
-/project-root/
-│
-├── client/                # React + TypeScript frontend
-├── server/                # Express + TypeScript backend
-│   ├── config/            # DB config
-│   ├── controllers/       # API logic
-│   ├── models/            # Mongoose schemas
-│   ├── routes/            # API routes
-│   ├── utils/             # Helper functions
-│   ├── server.ts          # App entry point
-│   └── .env               # Environment config
+client/              # Frontend React app
+ └── src/
+     ├── pages/       # Main views (ProductList, ProductDetail, ReviewForm)
+     ├── api/         # Axios config
+     ├── context/     # ProductContext
+     ├── assets/      # Logo and static assets
+
+server/              # Backend Express app
+ ├── controllers/     # productController.ts, reviewController.ts
+ ├── models/          # Product.ts, Review.ts
+ ├── routes/          # products.ts, reviews.ts
+ ├── config/          # db.ts for MongoDB connection
+ ├── utils/           # calculateAverageRating.ts
+ └── server.ts        # Main server entry
 ```
 
-## 🔧 Setup Instructions
+---
 
-### 🔹 Backend (server)
+## 🔧 Installation
 
-1. Go to `server` folder:
+### 1. Clone the repository
+```bash
+git clone https://github.com/bambafame/WAP.git
+cd ProductReviewRatinPlatform
+```
 
+### 2. Install dependencies
 ```bash
 cd server
-```
-
-2. Install dependencies:
-
-```bash
+npm install
+cd ../client
 npm install
 ```
 
-3. Install type declarations:
+### 3. Environment Setup
+#### Server (.env)
+```
+MONGODB_URI=your-mongodb-connection-string
+PORT=8000
+```
 
+### 4. Run the application
+#### Backend:
 ```bash
-npm install --save-dev @types/cors
-```
-
-4. Create `.env` file:
-
-```
-MONGO_URI=mongodb://localhost:27017/review-platform
-```
-
-5. Start development server:
-
-```bash
+cd server
 npx ts-node-dev server.ts
 ```
 
-### 🔹 Frontend (client)
-
-1. Go to `client` folder:
-
+#### Frontend:
 ```bash
 cd client
+npm run dev
 ```
 
-2. Install dependencies:
-
-```bash
-npm install
+### 5. Visit in Browser
 ```
-
-3. Start development server:
-
-```bash
-npm start
+http://localhost:5173
 ```
-
-Frontend runs on `http://localhost:3000` and talks to backend at `http://localhost:5000`.
-
-## ✅ API Endpoints
-
-### Products
-
-- `GET /products` → fetch paginated products
-- `GET /products/search?q=` → search by name
-
-### Reviews
-
-- `GET /products/:id/reviews` → get reviews by product
-- `POST /products/:id/reviews` → add a review
-- `PUT /products/:productId/reviews/:id` → update review
-- `DELETE /products/:productId/reviews/:id` → delete review
-
-## ✅ Bonus
-
-- MongoDB used instead of JSON → [✔️ 1 point]
 
 ---
 
-## 🎥 Video Demo Script Template
+## ✨ Core Functionalities Walkthrough
 
-1. **Intro**
+### ✅ Product CRUD
+- Add new product with modal
+- Create using `POST /products`
+- Edit product details
+- Update using `PUT /products/:id`
 
-   - “Hi, my name is [Your Name], and this is my CS472 final project: a Product Review & Rating Platform.”
+### 🔍 Product Search
+- Real-time search using backend
+- Search route: `GET /products/search?q=productName`
 
-2. **Backend Overview**
+### 📝 Review System
+- Submit review for product
+- Edit/delete review
+- Route: `POST /reviews/:productId`, `PUT`, `DELETE`
+- Rating displayed using stars
 
-   - “The backend is built using Express and TypeScript. I’ve used MongoDB to store products and reviews.”
-   - “All routes follow REST principles and include error handling, validation, and pagination.”
-
-3. **Frontend Tour**
-
-   - “Here is the homepage with a list of products fetched from the backend.”
-   - “Clicking a product shows its details and associated reviews.”
-   - “Users can add, edit, or delete reviews, and the average rating updates in real-time.”
-
-4. **Code Walkthrough**
-
-   - Briefly show folder structure
-   - Highlight a few key files like `server.ts`, `ProductList.tsx`, `ReviewForm.tsx`
-
-5. **Conclusion**
-   - “This platform demonstrates full-stack development using technologies covered in CS472, and meets all the project requirements.”
+### 🎨 Design
+- Tailwind CSS layout
+- Modal components
+- Toast notifications (react-toastify)
+- Sticky navbar + footer
 
 ---
 
-Happy coding!
+## 📦 Technologies Used
+- Frontend: React, TypeScript, Vite, Tailwind CSS
+- Backend: Node.js, Express, TypeScript
+- Database: MongoDB
+- UI/UX: react-toastify, modals, responsive design
 
-//// (the rest of the code remains unchanged)
+---
+
+## 📜 License
+MIU License © 2025
+
+---
+
+## 👥 Author
+Cheikh Ahmadou Bamba Fame
