@@ -24,6 +24,8 @@ app.use(express.json());
 app.use("/products", productRoutes);
 app.use("/reviews", reviewRoutes);
 
+const PORT = process.env.PORT;
+
 connectDB().then(() => {
-  app.listen(8000, () => console.log("Server running on port 8000"));
+  app.listen(PORT, () => console.log("Server running on port " + PORT));
 });
